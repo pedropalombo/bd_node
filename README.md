@@ -19,4 +19,4 @@ Feito isso, volte para a pasta raiz deste projeto e execute o comando `node serv
     Conectado ao banco de dados
 ```
 
-**Bons estudos!**
+**Autor: Pedro Afonso Palombo | sc3002578**
