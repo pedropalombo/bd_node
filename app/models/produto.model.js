@@ -3,9 +3,9 @@ module.exports = mongoose => {
     "produto",
     mongoose.Schema(
       {
-        titulo: String,
-        descricao: String,
-        preco: Number
+        title: String,
+        price: Number,
+        description: String
       },
       { timestamps: true }
     )

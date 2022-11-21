@@ -7,7 +7,7 @@ const app = express();
 
 // Seta as configurações do CORS. No caso, especifica que apenas conexões de tal endereço serão aceitas. Ver: // https://expressjs.com/en/resources/middleware/cors.html
 var corsOptions = {
-  origin: "http://localhost:4200"
+  origin: "*"
 };
 
 // Ativa a configuração CORS
@@ -39,8 +39,9 @@ db.mongoose
   });
 
 require("./app/routes/produto.routes")(app);
+app.disable('etag');
 // "Executa" o servidor, escutando em uma porta específica.
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8001;
 app.listen(PORT, () => {
   console.log(`Servidor está executando na porta ${PORT}.`);
 });

@@ -4,7 +4,7 @@ const Produto = db.produto;
 // Adicionar um novo produto
 exports.create = (req, res) => {
     // Verifica se existem as informações necessárias para adicionar um produto
-    if (!req.body.titulo || !req.body.descricao || !req.body.preco) {
+    if (!req.body.title || !req.body.price || !req.body.description) {
         // Se não existir, retorna uma mensagem de erro.
         res.status(400).send({ msg: "Requisição incompleta: dados ausentes" });
         // Encerra a função.
@@ -13,9 +13,9 @@ exports.create = (req, res) => {
 
     // Caso a requisição possua todos as informações necessárias, é hora de criar o objeto...
     const produto = new Produto({
-        titulo: req.body.titulo,
-        descricao: req.body.descricao,
-        preco: req.body.preco
+        title: req.body.title,
+        price: req.body.price,
+        description: req.body.description
     });
 
     // Depois de criado o objeto, vamos salvá-lo no banco de dados.
@@ -38,7 +38,6 @@ exports.findAll = (req, res) => {
     Neste exemplo, queremos retornar todos os elementos que atendem a determinada condição. Caso a condição esteja vazia (como é o caso aqui), então todos os produtos atendem à condição (retornando a lista de produtos completa).
     */
     var condition = {};
-
     Produto.find(condition).then(data => {
         res.send(data);
     }).catch(err => {
